@@ -156,7 +156,6 @@
   border-radius: 1rem;
   background: linear-gradient(135deg, #23272f 0%, #14161a 100%);
   box-shadow: 5px 0 10px #0e1013, -5px 0 20px #383e4b;
-  padding: 0.3rem;
   justify-content: center;
   margin: 0px auto;
   max-width: 70%;
@@ -165,7 +164,7 @@
 }
 @media all and (max-width: 600px) {
   .Task-Main {
-    max-width: 100%;
+    max-width: 98%;
   }
 }
 
@@ -233,9 +232,10 @@
 .text {
   color: white;
   margin-left: 10px;
+  text-align:left;
 }
 
-@media (max-width: 600px) {
+@media  all and (max-width: 600px) {
   .container input[type="checkbox"] {
     width: 16px;
     height: 16px;
@@ -248,6 +248,19 @@
 
   .path {
     stroke-width: 4;
+  }
+}
+@media all and (max-width:400px){
+  .text{
+    font-size:.7rem;
+    text-align: right;
+  }
+  .container svg {
+    height: 1.3em;
+    width: 1.3em;
+  }
+  .comp-cont strike{
+    text-align: center;
   }
 }
 /*TodoTask checkbox design end here*/
@@ -495,3 +508,91 @@
 /*edit input styling end*/
 
 /*TodoTask start*/
+
+
+
+/*CompletedTask.js Start Here*/
+.comp-cont{
+  border-radius: 1rem;
+  background: linear-gradient(135deg, #23272f 0%, #14161a 100%);
+  box-shadow: 5px 0 10px #0e1013, -5px 0 20px #383e4b;
+  justify-content: space-between;
+  margin: 2rem auto;
+  max-width: 70%;
+  caret-color: transparent;
+  
+  flex-direction: column;
+
+}
+.comp-cont ul{
+  list-style: none;
+  width: 100%;
+  padding: 10px;
+  margin: 0px;
+
+}
+.comp-cont ul li {
+  border-radius: 5px;
+  background: #23272f;
+  box-shadow: -5px -5px 10px #383e4b;
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  outline: none;
+  border: 1px solid transparent;
+  color: white;
+  transition: all 0.2s ease-in-out;
+  caret-color: transparent;
+  margin: 0.6rem 0px;
+  display: flex;
+  justify-content: center;
+}
+.comp-cont ul input[type="checkbox"] {
+  /* Hide the default checkbox appearance */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 17px;
+  height: 17px;
+  border: 1px solid whitesmoke;
+  background-color:none;
+  margin-top:.5%;
+  margin-right: 5px;
+  position: relative; /* Required for pseudo-element positioning */
+}
+
+/* Style the custom checkmark icon */
+input[type="checkbox"]::before {
+  content: "\2713"; /* Unicode checkmark character */
+  font-size: 18px;
+  position: absolute;
+  top: -40%;
+  left: 0%;
+  color: white; /* Color of the checkmark */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.2s; /* Smooth transition when checked */
+}
+
+/* Style the checkmark when the checkbox is checked */
+input[type="checkbox"]:checked::before {
+  opacity: 1; /* Show the checkmark */
+}
+.comp-cont h5{
+  color:orange;
+  margin-top:1.5%;
+  text-align: center;
+  font-weight:600;
+  font-family: monospace;
+}
+
+
+
+@media all and (max-width:600px){
+  .comp-cont{
+    max-width: 98%;
+  }
+  .comp-cont h5{
+    font-size:1rem;
+  }
+
+}

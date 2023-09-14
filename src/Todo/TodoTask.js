@@ -1,13 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./Todo.css";
 import { useDispatch, useSelector } from "react-redux";
-import { deletetask,edittask, } from "../Redux/Reducer/Reducer";
+import { deletetask,edittask, completedtask } from "../Redux/Reducer/Reducer";
 export default function TodoTask() {
   const todoitem=useSelector(state=>state.todo.Ttask);
   const dispatch=useDispatch();
   const [showedit, setShowedit] = useState(null);
   const EIref = useRef();
-
+  const Tpending = todoitem.filter(value=>value.tdone === false);
   useEffect(() => {
     if (EIref.current && EIref.current.value !== "") {
       EIref.current.focus();
@@ -25,13 +24,13 @@ export default function TodoTask() {
   
   return (
     <div className="Task-Main">
-      <ul>
-        {todoitem.map((value,index)=>(
-           <li key={index}>
+      <ul style={{display:Tpending.length>0?"block":"none"}}>
+        {Tpending.map((value,index)=>(
+           <li key={value.id}>
            {showedit!==value.id ? (        //comparing with value.id is to make the edit field unique to select and edit 
              <>
                <label className="container">
-                 <input type="checkbox" />
+               <input type="checkbox" onClick={() => dispatch(completedtask(value.id))} />
                  <svg viewBox="0 0 64 64" height="2em" width="2em">
                    <path
                      d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16"

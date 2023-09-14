@@ -12,7 +12,7 @@ export default function Navbar() {
   const debouncedThemeChange = debounce(() => {
     dispatch(ThemeChange());
   }, 300); // Adjust the debounce delay as needed
-console.log(theme)
+
   return (
     <>
       <MDBNavbar style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }} light>

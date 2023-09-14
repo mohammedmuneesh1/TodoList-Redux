@@ -1,5 +1,4 @@
 import React from "react";
-import "./Todo.css";
 import { useDispatch } from "react-redux";
 import { addtask } from "../Redux/Reducer/Reducer";
 export default function Add() {
@@ -25,7 +24,7 @@ export default function Add() {
 <>
 <form onSubmit={addtaskfn} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
     <div className="add-container">
-      <input type="text" name="t1" placeholder="Add Item" />
+      <input type="text" name="t1" placeholder="Add Item" autocomplete="off" />
       <button className="button">Add</button>
     </div>
          </form>
