@@ -426,13 +426,6 @@
 } 
 
 
-/*
-
-
-
-
-
-*/
 
 
 /*save button end*/
@@ -452,7 +445,8 @@
   box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
   color:grey;
   background: #23272f;
-  flex-basis: 70%;
+  flex-basis: 80%;
+
   
 }
 .editinput:focus{
@@ -470,8 +464,33 @@
   .edit-button:hover {
     width: 60px; 
     background-color: #1e90ff;
+
+  }
+  .delete-button::before {
+    display: none;
+    content:none;
+    color: white;
+    transition-duration: 0.3s;
+    font-size: 2px;
+  }
+  .delete-button:hover {
+    width: 60px; 
+    background-color: rgb(255, 69, 69);
   }
 
+}
+@media all and (max-width:500px){
+  .editinput{
+    /* margin: 30px; */
+    background: none;
+    border: 5px;
+    outline: none;
+    max-width: 100%;
+    padding: 8px 15px;
+    font-size: 10px;
+    background: #23272f;
+    
+  }
 }
 /*edit input styling end*/
 
