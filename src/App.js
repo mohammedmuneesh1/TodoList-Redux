@@ -1,18 +1,18 @@
 
-import "./App.css";
-import "./Todo/Todo.css"
-import Navbar from "./Todo/Navbar";
-import Todo from "./Todo/Todo";
+import "./Styles/App.css";
+import "./Styles/Todo.css"
+
 import { useSelector } from "react-redux";
-import CompletedTask from "./Todo/CompletedTask";
+
+import Home from "./Pages/Home";
+
 
 function App() {
   const theme = useSelector(state=>state.todo.theme);
   return (
     <div className={theme ? 'app-bg-day' : 'app-bg-night'}>
-    <Navbar/>
-    <Todo/>
-    <CompletedTask/>
+      <Home/>
+ 
    </div>
   
   );

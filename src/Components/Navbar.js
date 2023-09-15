@@ -1,12 +1,11 @@
 import React from "react";
 import { MDBContainer, MDBNavbar, MDBNavbarBrand } from "mdb-react-ui-kit";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { ThemeChange } from "../Redux/Reducer/Reducer";
 import { debounce} from "lodash";
 
 export default function Navbar() {
   const dispatch = useDispatch();
-  const theme = useSelector((state) => state.todo.theme);
 
   // Debounce the ThemeChange dispatch to prevent rapid toggling
   const debouncedThemeChange = debounce(() => {

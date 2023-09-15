@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const INITIAL_STATE={
     value:0,
     theme:true,
-    Ttask:[{id:1,title:"LET'S ORGANIZE TASKS HERE 📃✒️",tdone:false},{id:2,title:"footer pending",tdone:false}]
+    Ttask:[{id:1,title:"LET'S ORGANIZE TASKS HERE 📃✒️",tdone:false}]
 }
 
 export const todoslice=createSlice({

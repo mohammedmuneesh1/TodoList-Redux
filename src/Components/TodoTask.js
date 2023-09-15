@@ -7,6 +7,7 @@ export default function TodoTask() {
   const [showedit, setShowedit] = useState(null);
   const EIref = useRef();
   const Tpending = todoitem.filter(value=>value.tdone === false);
+
   useEffect(() => {
     if (EIref.current && EIref.current.value !== "") {
       EIref.current.focus();
@@ -21,16 +22,24 @@ export default function TodoTask() {
     // dispatch(edittask())
 
   }
+
+
+  const taskDone = (id) => {
+    setTimeout(() => {
+      dispatch(completedtask(id));
+    }, 500); // Delay of 500 milliseconds (adjust as needed)
+  };
+  
   
   return (
     <div className="Task-Main">
       <ul style={{display:Tpending.length>0?"block":"none"}}>
-        {Tpending.map((value,index)=>(
+        {Tpending.reverse().map((value,index)=>(
            <li key={value.id}>
            {showedit!==value.id ? (        //comparing with value.id is to make the edit field unique to select and edit 
              <>
                <label className="container">
-               <input type="checkbox" onClick={() => dispatch(completedtask(value.id))} />
+               <input type="checkbox" onClick={()=>taskDone(value.id)}/>
                  <svg viewBox="0 0 64 64" height="2em" width="2em">
                    <path
                      d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16"
