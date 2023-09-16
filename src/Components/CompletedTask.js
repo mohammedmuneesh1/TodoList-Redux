@@ -6,15 +6,17 @@ export default function CompletedTask() {
   const todoitem=useSelector(state=>state.todo.Ttask);
   const dispatch=useDispatch(); 
 
-
+//Extracting object[Task] that user completed [checked]
 const Tdone=todoitem.filter(value=> value.tdone === true);
 
 //event delegation start here
 const revertTask=(e,value)=>{
+
   // if(e.target.type === "checkbox"){
   //   dispatch(completedtask(value.id))
   // } USING DIRECTLY THE INPUT TYPE 
 
+  //checking with if that there contain a classname 'comchk' contains 
   if(e.target.classList.contains('comchk')){
     if(window.confirm("Would you like to add the task back to your list?"))
   
@@ -30,6 +32,7 @@ const revertTask=(e,value)=>{
 
 return (
     <>
+    {/* completedtask component start here */}
    <div className='comp-cont ' style={{display:Tdone.length>0?"flex":"none"}}>
         <h5>Task Completed</h5>
       <ul >
