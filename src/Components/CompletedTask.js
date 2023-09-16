@@ -33,7 +33,7 @@ const revertTask=(e,value)=>{
 return (
     <>
     {/* completedtask component start here */}
-   <div className='comp-cont ' style={{display:Tdone.length>0?"flex":"none"}}>
+   <div className='comp-cont ' style={{display:Tdone.length>0?"flex":"none",}}>
         <h5>Task Completed</h5>
       <ul >
         {Tdone.map(value=>(
