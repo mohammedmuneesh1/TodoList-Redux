@@ -24,7 +24,7 @@ export default function Add() {
 <>
 <form onSubmit={addtaskfn} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
     <div className="add-container">
-      <input type="text" name="t1" placeholder="Add Item" autocomplete="off" />
+      <input type="text" name="t1" placeholder="Add Item" autoComplete="off" />
       <button className="button">Add</button>
     </div>
          </form>
