@@ -4,6 +4,5 @@ import TodoReducer from "../Reducer/Reducer";
 export default configureStore({
     reducer:{
         todo:TodoReducer,
-    }
-    
+    } 
 })

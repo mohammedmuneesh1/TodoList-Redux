@@ -10,7 +10,6 @@ export default function TodoTask() {
   const Tpending = todoitem.filter((value) => value.tdone === false);
 
   // Use useEffect to focus on the edit input field when editing is enabled
-
   useEffect(() => {
     if (EIref.current && EIref.current.value !== "") {
       EIref.current.focus();
@@ -18,7 +17,6 @@ export default function TodoTask() {
   }, [showedit]);
 
   //Fn to handle editing a task [works when save button cliked]
-
   const edittaskfn = (e, EID, editedvalue) => {
     e.preventDefault();
     dispatch(edittask({ id: EID, title: editedvalue }));

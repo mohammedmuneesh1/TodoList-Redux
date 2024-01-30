@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 
 export default function Footer() {
   const theme = useSelector(state => state.todo.theme);
-
   return (
     <div className={`footer ${theme? 'day-footer' : 'dark-footer'}`}>
       &copy; {new Date().getFullYear()} Copyright:{' '}

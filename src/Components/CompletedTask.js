@@ -1,35 +1,42 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {completedtask } from "../Redux/Reducer/Reducer";
+import Swal from 'sweetalert2';
 export default function CompletedTask() {
-
   const todoitem=useSelector(state=>state.todo.Ttask);
   const dispatch=useDispatch(); 
-
 //Extracting object[Task] that user completed [checked]
 const Tdone=todoitem.filter(value=> value.tdone === true);
-
 //event delegation start here
-const revertTask=(e,value)=>{
-
-  // if(e.target.type === "checkbox"){
-  //   dispatch(completedtask(value.id))
-  // } USING DIRECTLY THE INPUT TYPE 
-
-  //checking with if that there contain a classname 'comchk' contains 
-  if(e.target.classList.contains('comchk')){
-    if(window.confirm("Would you like to add the task back to your list?"))
-  
-    dispatch(completedtask(value.id))
-  }
-  else{
+const revertTask = (e, value) => {
+  // Checking if the clicked element has the class 'comchk'
+  if (e.target.classList.contains('comchk')) {
+    Swal.fire({
+      // title: 'Are you sure?',
+      text: "Re-add this task?",
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Add',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Dispatch the action to mark the task as completed
+        dispatch(completedtask(value.id));
+        Swal.fire({
+          // title: 'Deleted!',
+          text: 'Added back to the list.',
+          icon: 'success',
+        });
+      }
+    });
+  } else {
+    // If the clicked element does not have the class 'comchk', uncheck the checkbox
     e.currentTarget.querySelector('.comchk').checked = false;
-    //above line to prevent the checkbox being unchecked when click on the cancel button 
+    // The above line prevents the checkbox from being unchecked when clicking the cancel button
   }
-
-}
+};
 //event delegation end here
-
 return (
     <>
     {/* completedtask component start here */}
@@ -39,7 +46,6 @@ return (
         {Tdone.map(value=>(
           <li key={value.id}>
             <label className="container"  onClick={(e)=>revertTask(e,value)}>
-
                <input type="checkbox" className='comchk' defaultChecked/>
                {/*onClick={() => dispatch(completedtask(value.id))}*/}
                  <svg viewBox="0 0 64 64" height="2em" width="2em">
@@ -53,11 +59,8 @@ return (
                    {value.title}
                  </span>
                </label>
-     
             </li>
-
         ))}
-
       </ul>
    </div>
     </>
