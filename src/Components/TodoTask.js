@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deletetask, edittask, completedtask } from "../Redux/Reducer/Reducer";
-
+import Swal from "sweetalert2";
 export default function TodoTask() {
   const todoitem = useSelector((state) => state.todo.Ttask);
   const dispatch = useDispatch();
@@ -33,12 +33,13 @@ export default function TodoTask() {
     } else if (e.target.classList.contains("edit-button")) {
       // Handle edit button click
       setShowedit(value.id);
-    } else if (e.target.classList.contains("delete-button")) {
-      // Handle delete button click
-      dispatch(deletetask(value.id));
     }
   };
-  //event delegation ended here
+
+
+  const deleteTask = (taskId)=>{
+    dispatch(deletetask(taskId));
+  }
 
   return (
     <div className="Task-Main">
@@ -69,7 +70,7 @@ export default function TodoTask() {
                     </svg>
                   </button>
 
-                  <button className="delete-button">
+                  <button className="delete-button" onClick={()=>deleteTask(value.id)}>
                     <svg className="delete-svgIcon" viewBox="0 0 448 512">
                       <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path>
                     </svg>
@@ -92,7 +93,7 @@ export default function TodoTask() {
                     {/*save button */}
                     <button
                       className="btnCloud"
-                      onClick={(e) =>EIref.current.value.trim() ===""?alert("💬:please Make Appropriate Changes Before Saving"):edittaskfn(e, value.id, EIref.current.value)}>
+                      onClick={(e) =>EIref.current.value.trim() ===""?Swal.fire("Add your task details for the to-do list."):edittaskfn(e, value.id, EIref.current.value)}>
                       {/* above onclick, giving condition that user can't save without entering any value */}
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
