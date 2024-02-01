@@ -1,34 +1,24 @@
-*{
+* {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
 }
 
-
 /*<Home> Start*/
-.home{
+.home {
   max-width: 100%;
   min-height: 95vh;
 }
 /*<Home> End*/
 
-
-
 /*Swal csss Start*/
 .swal2-title {
   /* font-family: Courier New, monospace; */
-  
-  font-size:1.3rem;
+
+  font-size: 1.3rem;
   /* font-style: italic; */
 }
 /*Swal csss End*/
-
-
-
-
-
-
-
 
 /*Add.js start */
 .add-container {
@@ -257,10 +247,10 @@
 .text {
   color: white;
   margin-left: 10px;
-  text-align:left;
+  text-align: left;
 }
 
-@media  all and (max-width: 600px) {
+@media all and (max-width: 600px) {
   .container input[type="checkbox"] {
     width: 16px;
     height: 16px;
@@ -275,16 +265,16 @@
     stroke-width: 4;
   }
 }
-@media all and (max-width:400px){
-  .text{
-    font-size:.7rem;
+@media all and (max-width: 400px) {
+  .text {
+    font-size: 0.7rem;
     text-align: right;
   }
   .container svg {
     height: 1.3em;
     width: 1.3em;
   }
-  .comp-cont strike{
+  .comp-cont strike {
     text-align: center;
   }
 }
@@ -354,7 +344,6 @@
 }
 /*delete button  end*/
 
-
 /*edit button start*/
 .edit-button {
   width: 40px;
@@ -421,18 +410,16 @@
 
 /*edit button end*/
 
-
 /*save button start*/
 .btnCloud {
   background-color: transparent;
   position: relative;
   fill: rgb(169, 164, 164);
   border: none;
-
 }
 
 .btnCloud::after {
-  content: 'SAVE';
+  content: "SAVE";
   position: absolute;
   top: -50%;
   left: 50%;
@@ -446,7 +433,7 @@
   font-size: 13px;
   visibility: hidden;
 }
- .icon {
+.icon {
   transform: scale(1.7);
   transition: 200ms linear;
 }
@@ -461,17 +448,13 @@
   visibility: visible;
   opacity: 1;
   top: -50%;
-} 
-
-
-
+}
 
 /*save button end*/
 
-
 /*edit input styling start*/
 
-.editinput{
+.editinput {
   /* margin: 30px; */
   background: none;
   border: 5px;
@@ -481,44 +464,40 @@
   font-size: 16px;
   border-radius: 9999px;
   box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
-  color:grey;
+  color: grey;
   background: #23272f;
   flex-basis: 80%;
-
-  
 }
-.editinput:focus{
+.editinput:focus {
   caret-color: whitesmoke;
 }
 
-@media all and (max-width:600px){
+@media all and (max-width: 600px) {
   .edit-button::before {
     display: none;
-    content:none;
+    content: none;
     color: white;
     transition-duration: 0.3s;
     font-size: 2px;
   }
   .edit-button:hover {
-    width: 60px; 
+    width: 60px;
     background-color: #1e90ff;
-
   }
   .delete-button::before {
     display: none;
-    content:none;
+    content: none;
     color: white;
     transition-duration: 0.3s;
     font-size: 2px;
   }
   .delete-button:hover {
-    width: 60px; 
+    width: 60px;
     background-color: rgb(255, 69, 69);
   }
-
 }
-@media all and (max-width:500px){
-  .editinput{
+@media all and (max-width: 500px) {
+  .editinput {
     /* margin: 30px; */
     background: none;
     border: 5px;
@@ -527,17 +506,14 @@
     padding: 8px 15px;
     font-size: 10px;
     background: #23272f;
-    
   }
 }
 /*edit input styling end*/
 
 /*TodoTask start*/
 
-
-
 /*CompletedTask.js Start Here*/
-.comp-cont{
+.comp-cont {
   border-radius: 1rem;
   background: linear-gradient(135deg, #23272f 0%, #14161a 100%);
   box-shadow: 5px 0 10px #0e1013, -5px 0 20px #383e4b;
@@ -545,16 +521,14 @@
   margin: 2rem auto;
   max-width: 70%;
   caret-color: transparent;
-  
-  flex-direction: column;
 
+  flex-direction: column;
 }
-.comp-cont ul{
+.comp-cont ul {
   list-style: none;
   width: 100%;
   padding: 10px;
   margin: 0px;
-
 }
 .comp-cont ul li {
   border-radius: 5px;
@@ -580,8 +554,8 @@
   width: 17px;
   height: 17px;
   border: 1px solid whitesmoke;
-  background-color:none;
-  margin-top:.5%;
+  background-color: none;
+  margin-top: 0.5%;
   margin-right: 5px;
   position: relative; /* Required for pseudo-element positioning */
 }
@@ -602,25 +576,19 @@ input[type="checkbox"]::before {
 input[type="checkbox"]:checked::before {
   opacity: 1; /* Show the checkmark */
 }
-.comp-cont h5{
-  color:orange;
-  margin-top:1.5%;
+.comp-cont h5 {
+  color: orange;
+  margin-top: 1.5%;
   text-align: center;
-  font-weight:600;
+  font-weight: 600;
   font-family: monospace;
 }
 
-
-
-@media all and (max-width:600px){
-  .comp-cont{
+@media all and (max-width: 600px) {
+  .comp-cont {
     max-width: 98%;
   }
-  .comp-cont h5{
-    font-size:1rem;
+  .comp-cont h5 {
+    font-size: 1rem;
   }
-
 }
-
-
-
